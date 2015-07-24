@@ -12,7 +12,7 @@
 | C1 | C2 | C3 |
 | C1 | C2 | C3 |
 
-| Language | Second Header | Third Header |
+| Language | OS | Third Header |
 | --------     | ------------- | ------------ |
 | C1 | C2 | C3 |
 | C1 | C2 | C3 |
