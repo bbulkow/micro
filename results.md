@@ -7,7 +7,7 @@
 | C1 | C2 |
 | C1 | C2 |
 
-| First Header | Second Header |
+| Language | OS |
 | --------     | ------------- |
 | C1 | C2 |
 | C1 | C2 |
