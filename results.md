@@ -2,12 +2,10 @@
 
 # test table
 
-| Language | OS |
-| -------- | -- |
+| First Header | Second Header |
+| --------     | ------------- |
 | C1 | C2 |
 | C1 | C2 |
-
-
 
 | Language | OS | date | Version | MachineType | t1 | t5 |
 | -------- | -- | ---- | ------- | ----------- | -- | -- |
