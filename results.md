@@ -7,6 +7,11 @@
 | C1 | C2 |
 | C1 | C2 |
 
+| First Header | Second Header |
+| --------     | ------------- |
+| C1 | C2 |
+| C1 | C2 |
+
 | Language | OS |
 | -------- | -- |
 | PHP    | U14.04 |
