@@ -22,10 +22,6 @@
 | C1 | C2 | C3 |
 | C1 | C2 | C3 |
 
-| Language | OS |
-| -------- | -- |
-| PHP    | U14.04 |
-
 | Language | OS | date | Version | MachineType | t1 | t5 |
 | -------- | -- | ---- | ------- | ----------- | -- | -- |
 | PHP    | U14.04 | Jul24-15 | PHP 5.5.9  | MacVMware |0.00382 |  10.19s |
