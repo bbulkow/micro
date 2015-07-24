@@ -1,4 +1,4 @@
-Add new results here
+~~Add new results here~~
 
 | Language | OS | date | Version | MachineType | t1 | t5 |
 | -------- | -------- | -------  | ----------- | -- | -- |
