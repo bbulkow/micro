@@ -7,9 +7,9 @@
 | C1 | C2 |
 | C1 | C2 |
 
-| Language | OS | date | Version | MachineType | t1 | t5 |
-| -------- | -- | ---- | ------- | ----------- | -- | -- |
-
+| Language | OS |
+| -------- | -- |
+| PHP    | U14.04 |
 
 | Language | OS | date | Version | MachineType | t1 | t5 |
 | -------- | -- | ---- | ------- | ----------- | -- | -- |
