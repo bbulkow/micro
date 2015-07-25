@@ -17,10 +17,10 @@
 | C1 | C2 | C3 |
 | C1 | C2 | C3 |
 
-| Language  | OS  | dood  |
-| --------  | --  | ----  |
-| C1  | C2  | C3  |
-| C1  | C2  | C3  |
+| Language  | OS | dood |
+| --------  | -- | ---- |
+| C1 | C2 | C3 |
+| C1 | C2 | C3 |
 
 | Language | OS | dood |
 | -------- | -- | ---- |
