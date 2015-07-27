@@ -5,6 +5,8 @@ import "strconv"
 import "fmt"
 import "math/big"
 import "sync"
+import "strings"
+import "bytes"
 
 func f1() {
 
@@ -33,6 +35,71 @@ func f1() {
    //fmt.Printf("t1: answer %v\n time1 %v time2 %v\n", x_b, t1.Sub(t0), t2.Sub(t1) );
    fmt.Printf("t1: time1 %v time2 %v\n", t1.Sub(t0), t2.Sub(t1) );
 } 
+
+func f2() {
+
+  t0 := time.Now()
+
+  const nStrings int = 1000
+  const nCats int = 100000
+
+  var a1 [nStrings]string
+  var c int = 'a'
+  a1[0] = string(c)
+  for i := 1; i < nStrings; i++ {
+    c++
+    a1[i] = a1[i-1] + string(c)
+  }
+
+  t1 := time.Now()
+
+  var a2 [nCats]string
+  for i :=0; i < nCats; i++ {
+    a2[i] = 
+      a1[i % len(a1) ] + 
+      a1[ (i+7) % len(a1) ] + 
+      a1[ (i+17) % len(a1) ] + 
+      a1[ (i+37) % len(a1) ] + 
+      a1[ (i+47) % len(a1) ] +
+      a1[ (i+57) % len(a1) ]
+  }
+
+  t2 := time.Now()
+
+  var a3 [nCats]string
+  for i :=0; i < nCats; i++ {
+    a7 := []string { 
+      a1[i % len(a1) ], 
+      a1[ (i+7) % len(a1) ],
+      a1[ (i+17) % len(a1) ],
+      a1[ (i+37) % len(a1) ],
+      a1[ (i+47) % len(a1) ],
+      a1[ (i+57) % len(a1) ],
+    }
+    a3[i] = strings.Join(a7, "")
+  }
+
+  t3 := time.Now()
+
+  var a4 [nCats]string
+
+  for i :=0; i < nCats; i++ {
+    var buffer bytes.Buffer
+    buffer.WriteString( a1[i % len(a1) ] )
+    buffer.WriteString( a1[ (i+7) % len(a1) ] )
+    buffer.WriteString( a1[ (i+17) % len(a1) ] )
+    buffer.WriteString( a1[ (i+37) % len(a1) ] )
+    buffer.WriteString( a1[ (i+47) % len(a1) ] )
+    buffer.WriteString( a1[ (i+57) % len(a1) ] )
+    a4[i] = buffer.String()
+  }
+
+  t4 := time.Now()
+
+  fmt.Printf("t2: arraycreate %v plus time %v join time %v bytesbuffer time %v\n", 
+    t1.Sub(t0), t2.Sub(t1), t3.Sub(t2), t4.Sub(t3) )
+
+}
 
 func f5() {
 	t0 := time.Now()
@@ -323,6 +390,9 @@ func main() {
 
 
   f1()
+
+  f2()
+
 	f5()
   f5a()
   f5b()
