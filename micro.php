@@ -3,25 +3,28 @@
 ini_set('memory_limit','1G');
 
 function f1() {
-	$start = microtime(true);
+	$t0 = microtime(true);
 	$x = 10;
 	for ($i = 0; $i < 100000; ++$i) {
 		$x = ( 2 * $x ) + $x + 1;
 	}
-#	print "t1 answer %d time %f" % (x, float(time.clock()) - start) 
-	printf( "f1 result %d time %f seconds\n" , $x, microtime(true) - $start );
+	$t1 = microtime(true);
+
+	printf( "f1 result %d time %f seconds\n" , $x, $t1 - $t0 );
 }
 
 function f1a() {
 	$start = microtime(true);
 	$x = 10;
 	$i = 0;
+
 	do {
 		$x = ( 2 * $x ) + $x + 1;
 		++$i;
 	} while ($i < 100000);
-#	print "t1 answer %d time %f" % (x, float(time.clock()) - start) 
-	printf( "f1a (different loop) result %d time %f seconds\n" , $x, microtime(true) - $start );
+	$t1 = microtime(true);
+
+	printf( "f1a (different loop) result %d time %f seconds\n" , $x, $t1 - $t0 );
 }
 
 function f2() {
