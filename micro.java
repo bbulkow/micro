@@ -72,6 +72,7 @@ public class micro {
 			a2[i] = a1[i % a1.length ] + 
 					a1[ (i+7) % a1.length ] + 
 					a1[ (i+17) % a1.length ] + 
+					a1[ (i+27) % a1.length ] +
 					a1[ (i+37) % a1.length ] + 
 					a1[ (i+47) % a1.length ] +
 					a1[ (i+57) % a1.length ];
@@ -86,6 +87,7 @@ public class micro {
 			sb.append( a1[ i % a1.length ] );
 			sb.append( a1[ (i+7) % a1.length ] );
 			sb.append( a1[ (i+17) % a1.length ] );		
+			sb.append( a1[ (i+27) % a1.length ] );		
 			sb.append( a1[ (i+37) % a1.length ] );
 			sb.append( a1[ (i+47) % a1.length ] );
 			sb.append( a1[ (i+57) % a1.length ] );
