@@ -12,4 +12,6 @@ hh_client
 hhvm micro.hh
 echo "node!"
 node micro.js
+echo "iojs!"
+/usr/local/opt/iojs/bin/iojs micro.js
 
