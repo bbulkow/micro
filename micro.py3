@@ -8,6 +8,10 @@ def f1():
 #	print "t1 answer %d time %f" % (x, float(time.clock()) - start) 
 	print("f1 time %f seconds" % ( float(time.clock()) - start)) 
 
+# Create nStrings strings.
+# the first string just has the character 'a', the second one is 'ab', etc
+# you end up with an array of strings, some short some long
+
 def f2():
 
   t0 = float(time.clock())
@@ -21,6 +25,9 @@ def f2():
 
   for i in range(1,nStrings):
     c += 1
+    c = c % 256
+    if c == 0:
+      c += 1
     a1.append ( a1[i-1] + str(c) )
 
   t1 = float(time.clock())
