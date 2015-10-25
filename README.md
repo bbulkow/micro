@@ -18,3 +18,20 @@ kind of integers? t1 should cover both 'native ints' and bigints. Some languages
 
 t5 is a basic test to create maps and insert data. Does not stress retrieving.
 
+# notes about C and C++
+
+In the C++ test, we see that the -O3 flag is critical. Without -O3, C++ is so much slower than python
+that we might say C is bringing a stone axe to a gunflight. C++ certainly doesn't get up to the speed
+of the fast languages, like Java, PHP7, and node/js. With C++, we see that at least C++ is getting up
+to the speed of python.
+
+In C++'s defense, I might say "it's easy to write slow code in any language", but I might also say 
+that if idomatic code is slow, the language is slow. The goal of this tool is to test IDOMATIC code.
+
+One problem with C++ is that you're relying on the underlying, thread safe, allocator that the system provides.
+Some of the tests stress the memory allocation system, which is of unknown quality. At least, then,
+let's test with something more stable and known to be fast. Thus, the inclusion of testing using the JEMalloc
+allocator, which can be dropped into a directory. The current "run" script works against OSX, which has
+unusual linkage needs.
+
+We still see idiomatic C++ running about 8x slower than Java, PHP7, and Node.

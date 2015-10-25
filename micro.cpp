@@ -15,8 +15,10 @@ void f1()
   }
 
   chrono::steady_clock::time_point end = chrono::steady_clock::now();
-  chrono::duration<double> time_span = chrono::duration_cast < chrono::duration<double> > (end - start);
-  std::cout << "f1 took " << time_span.count() << " seconds. " << std::endl;
+
+  std::cout << "f1 took " 
+            << chrono::duration_cast<chrono::milliseconds>(end - start).count() 
+            << " milliseconds. " << std::endl;
 }
 
 void f2()
@@ -58,10 +60,12 @@ void f2()
 
   chrono::steady_clock::time_point t3 = chrono::steady_clock::now();
 
-  std::cout << "f2 createstr " 
+  std::cout << "f2 createstr only " 
             << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() 
-            << " sec , plus cat " 
+            << " millisec , plus catenating " 
             << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count()
+            << " millisec, optimzied vectors "
+            << chrono::duration_cast<chrono::milliseconds>(t3 - t2).count()
             << std::endl ; 
 }
 
@@ -69,17 +73,47 @@ void f5()
 {
   chrono::steady_clock::time_point t0 = chrono::steady_clock::now();
 
+  // the basic and most idomatic way to fulfill this
   for (int i = 0; i < 1000000;i++) {
     map<int, string> a;
     for (int j = 0; j < 50; j++) {
       a[j] = to_string(j);
     }
   }
+  // NB: don't have to delete things. These are on the stack?
 
   chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
 
-  std::cout << "f5 milliseconds " 
+  // try with just one, and clearing it
+  map<int, string> a1;
+  for (int i = 0; i < 1000000;i++) {
+    for (int j = 0; j < 50; j++) {
+      a1[j] = to_string(j);
+    }
+    a1.clear();
+  }
+
+  chrono::steady_clock::time_point t2 = chrono::steady_clock::now();
+
+  // Re-use the same string --- is it the string create which is long?
+  map<int, const char *> a2;
+  for (int i = 0; i < 1000000;i++) {
+    for (int j = 0; j < 50; j++) {
+      a2[j] = "123";
+    }
+    a2.clear();
+  }
+
+  chrono::steady_clock::time_point t3 = chrono::steady_clock::now();
+
+
+  std::cout << "f5 " 
             << chrono::duration_cast<chrono::milliseconds>(t1 - t0).count() 
+            << " ms standard, "
+            << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count() 
+            << " ms reusing map, "
+            << chrono::duration_cast<chrono::milliseconds>(t2 - t1).count() 
+            << " ms constant string "
             << std::endl ;
 
 }
